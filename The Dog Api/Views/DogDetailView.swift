@@ -12,13 +12,16 @@ struct DogDetailView: View {
     let dog: Dog
     
     var body: some View {
+        Color.green.opacity(0.2)
+                .ignoresSafeArea()
+                .overlay(
         VStack {
             DogView(dog: dog)
             
             VStack(spacing: 10) {
                 Text("Temperament: \(dog.temperament ?? "")")
             }
-        }
+        })
         .onAppear{
             vm.getDetails(dog: dog)
         }

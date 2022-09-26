@@ -15,6 +15,7 @@ struct ContentView: View {
     ]
     
     var body: some View {
+        
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
@@ -27,7 +28,7 @@ struct ContentView: View {
                 .animation(.easeIn(duration: 0.3), value: vm.filteredDog.count)
                 .navigationTitle("DogUI")
                 .navigationBarTitleDisplayMode(.inline)
-            }
+            }.background(Color.blue.opacity(0.2))
             .searchable(text: $vm.searchText)
         }
         .environmentObject(vm)
